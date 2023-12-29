@@ -1,0 +1,74 @@
+<!-- <div class="side-nav-content">
+
+    <div class="mb-4 text-center">
+        <img src="../../../../assets/img/logoPescado.png" *ngIf="identity.role === 'ADMIN'" style="background-color: white;" class="user-img">
+        <img src="../../../../assets/img/logoPescado.png" *ngIf="identity.role === 'TECNICO'" style="background-color: white;" class="user-img">
+        <img src="../../../../assets/img/logoPescado.png" *ngIf="identity.role === 'VENDEDOR'" style="background-color: white;" class="user-img">
+        <h4 class="mt-2 fw-bold">{{identity.nombres}}</h4>
+        <p>{{identity.role}}</p>
+    </div>
+
+    <ul class="nav-list">
+
+        <li class="nav-list-item" routerLinkActive="sidebar-item-active">
+            <i class="fa fa-house"></i>
+            <span>
+                <a routerLink="/inicio">Inicio</a>
+            </span>
+        </li>
+
+        <li class="nav-list-item" *ngIf="identity.role === 'ADMIN'" routerLinkActive="sidebar-item-active">
+            <i class="fa fa-user"></i>
+            <span>
+                <a routerLink="/users">Usuarios</a>
+            </span>
+        </li>
+
+        <li class="nav-list-item" routerLinkActive="sidebar-item-active">
+            <i class="fa-solid fa-users"></i>
+            <span>
+                <a routerLink="/clientes">Clientes</a>
+            </span>
+        </li>
+
+        <li class="nav-list-item" *ngIf="identity.role === 'VENDEDOR'|| identity.role === 'ADMIN'" routerLinkActive="sidebar-item-active">
+            <i class="fa fa-box"></i>
+            <span>
+                <a routerLink="/productos">Productos</a>
+            </span>
+        </li>
+
+        <li class="nav-list-item" *ngIf="identity.role === 'VENDEDOR'|| identity.role === 'ADMIN'" routerLinkActive="sidebar-item-active">
+            <i class="fa fa-cart-shopping"></i>
+            <span>
+                <a routerLink="/ventas">Ventas</a>
+            </span>
+        </li>
+
+        <li class="nav-list-item">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>
+                <a href="" (click)="logout()">Cerrar Sesión</a>
+            </span>
+        </li>
+
+    </ul>
+
+</div> -->
+
+<header class="header">
+  <div class="logo" >
+    <img routerLink="/inicio" src="../../../../assets/img/logoPescado.png" alt="Logo de la marca" />
+    <h5 class="ms-3 mt-2 text-white">Bienvenido, <strong>{{ identity.nombres }}</strong></h5>
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a routerLink="/inicio">Inicio</a></li>
+      <li><a routerLink="/users">Usuarios</a></li>
+      <li><a routerLink="/clientes">Clientes</a></li>
+      <li><a routerLink="/productos">Productos</a></li>
+      <li><a routerLink="/ventas">Ventas</a></li>
+    </ul>
+  </nav>
+  <a class="btn" (click)="logout()"><button>Cerrar Sesión</button></a>
+</header>

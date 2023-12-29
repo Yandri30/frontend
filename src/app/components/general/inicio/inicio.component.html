@@ -1,0 +1,53 @@
+<div class="main">
+  <!-- Hero Start -->
+  <section class="hero">
+    <div class="row container">
+      <div class="column">
+        <div class="card rounded-3">
+          <div class="card-body">
+            <h2 class="text-black">
+            ¡Bienvenido a "El Señuelo" - <br />Tu Socio en Gestión de
+            Inventario!
+          </h2>
+          <p class="text-black">
+            En El Señuelo, entendemos que la gestión eficiente del inventario es
+            clave para el éxito de tu empresa. Nos enorgullece ofrecerte
+            soluciones personalizadas que se adaptan a las necesidades únicas de
+            tu negocio pesquero. Hoy, estamos aquí para ayudarte a optimizar tus
+            operaciones y maximizar tu rendimiento. <br />
+            ¿En qué podemos ayudarte hoy?
+          </p>
+          </div>
+        </div>
+        <div class="buttons">
+          <div *ngIf="identity.role === 'ADMIN'">
+            <a routerLink="/users" class="btn">Usuarios</a>
+          </div>
+          <div
+            *ngIf="identity.role === 'VENDEDOR' || identity.role === 'ADMIN'"
+          >
+            <a routerLink="/clientes" class="btn">Clientes</a>
+          </div>
+          <div
+            *ngIf="identity.role === 'VENDEDOR' || identity.role === 'ADMIN'"
+          >
+            <a routerLink="/productos" class="btn">Productos</a>
+          </div>
+          <div
+            *ngIf="identity.role === 'VENDEDOR' || identity.role === 'ADMIN'"
+          >
+            <a routerLink="/ventas" class="btn">Ventas</a>
+          </div>
+          <div
+            *ngIf="identity.role === 'VENDEDOR' || identity.role === 'ADMIN'"
+          >
+            <a (click)="logout()" class="btn">Salir</a>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+      </div>
+    </div>
+  </section>
+  <!-- Hero End-->
+</div>

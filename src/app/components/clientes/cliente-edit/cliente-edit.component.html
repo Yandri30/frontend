@@ -1,0 +1,93 @@
+<div class="container-fluid g-0">
+
+    <app-sidebar class="border-0"></app-sidebar>
+
+    <div class="display-area">
+        <main class="content mt-5">
+            <div class="container-fluid">
+
+                <div class="header">
+                    <h1 class="header-title">
+                        Clientes
+                    </h1>
+                    <p class="header-subtitle">Listado de todos los clientes registrados en el sistema.</p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item" routerLink="/inicio"><a href="/inicio">Inicio</a></li>
+                            <li class="breadcrumb-item"><a routerLink="/clientes">Clientes</a></li>
+                            <li class="breadcrumb-item active"><a href="">Editar</a></li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-xl-12">
+                        <form #clienteForm="ngForm" (ngSubmit)="onSubmit(clienteForm)" class="formulario" id="formulario">
+                            <div class="card">
+                                <div class="card-header" style="color: #fff; background-color: #3FABBE;">
+                                    <h5 class="card-title">Datos del cliente</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- GRUPO NOMBRE -->
+                                        <div class="col-lg-4 formulario__grupo" id="grupo__nombres">
+                                            <label><b>Nombres del cliente</b></label>
+                                            <div class="form-group formulario__grupo-input">
+                                                <input type="text" class="form-control mt-2 formulario__input" id="nombres" #nombres="ngModel" name="nombres" [(ngModel)]="cliente.nombres" placeholder="Nombre y apellido" required>
+                                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                            </div>
+                                            <p class="formulario__input-error">El nombre tiene que ser de 1 a 40 carácteres puede llevar letras, espacios y acentos.</p>
+                                        </div>
+                                        <!-- GRUPO CEDULA -->
+                                        <div class="col-lg-4 formulario__grupo" id="grupo__cedula">
+                                            <label><b>Cédula del cliente</b></label>
+                                            <div class="form-group formulario__grupo-input">
+                                                <input type="text" class="form-control mt-2 formulario__input" id="cedula" #cedula="ngModel" name="cedula" [(ngModel)]="cliente.cedula" placeholder="Cédula del cliente" required>
+                                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                            </div>
+                                            <p class="formulario__input-error">La cédula tiene que ser de 10 dígitos.</p>
+                                        </div>
+                                        <!-- GRUPO CORREO -->
+                                        <div class="col-lg-4 formulario__grupo" id="grupo__correo">
+                                            <label><b>Correo del cliente</b></label>
+                                            <div class="form-group formulario__grupo-input">
+                                                <input type="email" class="form-control mt-2 formulario__input" id="correo" #correo="ngModel" name="correo" [(ngModel)]="cliente.correo" placeholder="Correo del cliente" required>
+                                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                            </div>
+                                            <p class="formulario__input-error">El correo debe tener el formato "example@example.com", puede contener letras, números, puntos, guiones y guion bajo.</p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <!-- GRUPO DIRECCION -->
+                                        <div class="col-lg-4 formulario__grupo" id="grupo__direccion">
+                                            <label><b>Dirección del cliente</b></label>
+                                            <div class="form-group formulario__grupo-input">
+                                                <input type="text" class="form-control mt-2 formulario__input" id="direccion" #direccion="ngModel" name="direccion" [(ngModel)]="cliente.direccion" placeholder="Dirección" required>
+                                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                            </div>
+                                            <p class="formulario__input-error">La dirección tiene que ser de 1 a 50 carácteres puede llevar letras, espacios, simbolos y acentos.</p>
+                                        </div>
+                                        <!-- GRUPO TELEFONO -->
+                                        <div class="col-lg-4 formulario__grupo" id="grupo__telefono">
+                                            <label><b>Teléfono del cliente</b></label>
+                                            <div class="form-group formulario__grupo-input">
+                                                <input type="text" class="form-control mt-2 formulario__input" id="telefono" #telefono="ngModel" name="telefono" [(ngModel)]="cliente.telefono" placeholder="Teléfono del cliente" required>
+                                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                            </div>
+                                            <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 10 dígitos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-info">Actualizar Cliente</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+</div>

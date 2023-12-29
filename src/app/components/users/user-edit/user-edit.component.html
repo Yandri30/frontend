@@ -1,0 +1,114 @@
+<div class="container-fluid g-0">
+
+    <app-sidebar class="border-0"></app-sidebar>
+
+    <div class="display-area">
+
+        <main class="content mt-5">
+            <div class="container-fluid">
+                <div class="header">
+                    <h1 class="header-title">
+                        Edición de usuarios
+                    </h1>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/inicio">Inicio</a></li>
+                        <li class="breadcrumb-item"><a routerLink="/users">Usuarios</a></li>
+                        <li class="breadcrumb-item active"><a href="">Edición de Usuarios</a></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12 col-xl-12">
+
+                    <div class="card">
+                        <div class="card-header" style="color: #fff; background-color: #3FABBE;">
+                            <h5 class="card-title">Rellene el formulario</h5>
+                            <h6 class="card-subtitle text muted">Usuarios.</h6>
+                        </div>
+                        <div class="card-body">
+                            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="formulario" id="formulario">
+                                <div class="row">
+                                    <!-- GRUPO NOMBRES -->
+                                    <div class="col-lg-4 formulario__grupo" id="grupo__nombres">
+                                        <label class="form label">Nombres del usuario</label>
+                                        <div class="form-group formulario__grupo-input">
+                                            <input type="text" class="form-control mt-2 formulario__input" id="nombres" placeholder="Nombres del usuario" #nombres="ngModel" name="nombres" [(ngModel)]="user.nombres" required>
+                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                        </div>
+                                        <p class="formulario__input-error">Los nombres tiene que ser de 1 a 40 carácteres puede llevar letras, espacios y acentos.</p>
+                                    </div>
+                                    <!-- GRUPO APELLIDOS -->
+                                    <div class="col-lg-4 formulario__grupo" id="grupo__apellidos">
+                                        <label class="form label">Apellidos del usuario</label>
+                                        <div class="form-group formulario__grupo-input">
+                                            <input type="text" class="form-control mt-2 formulario__input" id="apellidos" placeholder="Apellidos del usuario" #apellidos="ngModel" name="apellidos" [(ngModel)]="user.apellidos" required>
+                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                        </div>
+                                        <p class="formulario__input-error">Los apellidos tiene que ser de 1 a 40 carácteres puede llevar letras, espacios y acentos.</p>
+                                    </div>
+                                    <!-- GRUPO CEDULA -->
+                                    <div class="col-lg-4 formulario__grupo" id="grupo__cedula">
+                                        <label class="form label">Cédula del usuario</label>
+                                        <div class="form-group formulario__grupo-input">
+                                            <input type="text" class="form-control mt-2 formulario__input" id="cedula" placeholder="Cédula del usuario" #cedula="ngModel" name="cedula" [(ngModel)]="user.cedula" required>
+                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                        </div>
+                                        <p class="formulario__input-error">La cédula tiene que ser de 10 dígitos.</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <!-- GRUPO EMAIL -->
+                                    <div class="col-lg-4 formulario__grupo" id="grupo__email">
+                                        <label class="form label">Email del usuario</label>
+                                        <div class="form-group formulario__grupo-input">
+                                            <input type="email" class="form-control mt-2 formulario__input" id="email" placeholder="Email del usuario " #email="ngModel" name="email" [(ngModel)]="user.email" required>
+                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                        </div>
+                                        <p class="formulario__input-error">El correo debe tener el formato "example@example.com", puede contener letras, números, puntos, guiones y guion bajo.</p>
+                                    </div>
+                                    <!-- GRUPO TELEFONO -->
+                                    <div class="col-lg-4 formulario__grupo" id="grupo__telefono">
+                                        <label class="form label">Teléfono del usuario</label>
+                                        <div class="form-group formulario__grupo-input">
+                                            <input type="text" class="form-control mt-2 formulario__input" id="telefono" placeholder="Teléfono del usuario " #telefono="ngModel" name="telefono" [(ngModel)]="user.telefono" required>
+                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                        </div>
+                                        <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 10 dígitos.</p>
+                                    </div>
+                                    <!-- GRUPO CONTRASEÑA -->
+                                    <div class="col-lg-4 formulario__grupo" id="grupo__password">
+                                        <label class="form label">Nueva contraseña</label>
+                                        <div class="form-group formulario__grupo-input">
+                                            <input type="password" class="form-control mt-2 formulario__input" id="password" placeholder="Ingrese la nueva contraseña" #password="ngModel" name="password" [(ngModel)]="passwordText">
+                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                        </div>
+                                        <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form label">Rol del usuario</label>
+                                            <select name="role" #role [(ngModel)]="user.role" class="form-control form-select mt-2">
+                                                <option value="" disabled>SELECIONAR</option>
+                                                <option value="ADMIN">Administrador</option>
+                                                <option value="VENDEDOR">Vendedor</option>
+                                                <option value="TECNICO">Tecnico</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <p class="indicacion mt-3">*Recuerda que cualquier tipo de usuario para ingresar al sistema, solamente digita su numero de cédula <br> y su contraseña, la cual es asignada por el administrador</p>
+                                </div>
+                                <button type="submit" class="btn btn-info mt-2">Actualizar</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+</div>

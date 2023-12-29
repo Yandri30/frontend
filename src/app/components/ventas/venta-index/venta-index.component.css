@@ -1,0 +1,9 @@
+.btn__mod {
+    background-color: #fff;
+    color: black;
+}
+
+.btn__mod:hover {
+    background-color: #ddddddd3;
+    color: white;
+}

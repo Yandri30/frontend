@@ -1,0 +1,135 @@
+/* .sidebar-item-active {
+    background-color: rgba(95, 158, 160, 0.449);
+    border-radius: 10px;
+}
+
+.user-img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.side-nav-content {
+    color: white;
+    width: 230px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.nav-list {
+    list-style: none;
+    height: 100%;
+    padding: 0%;
+    margin-bottom: 0%;
+}
+
+.nav-list-item {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.nav-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.nav-list-item i {
+    font-size: 20px;
+    height: 25px;
+    width: 25px;
+    margin-right: 15px;
+    margin-left: 10px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.nav-list-item span {
+    width: 120px;
+    text-transform: capitalize;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+} */
+
+.header {
+  background-color: #3FABBE;
+  display: flex;
+  justify-content: space-between;
+  /* Utiliza space-between para separar los elementos al máximo */
+  align-items: center;
+  height: 85px;
+  padding: 5px 10%;
+}
+
+.header .logo {
+  cursor: pointer;
+  display: flex;
+  /* Hace que los elementos dentro de .logo sean flexibles */
+  align-items: center;
+  /* Alinea los elementos verticalmente */
+}
+
+.header .logo img {
+  height: 70px;
+  width: auto;
+  margin-right: 10px;
+  /* Ajusta el margen entre la imagen y el texto según sea necesario */
+  transition: all 0.3s;
+}
+
+.header .logo img:hover {
+  transform: scale(1.2);
+}
+
+.header .logo p {
+  margin: 0;
+  /* Elimina el margen predeterminado del párrafo */
+  color: white;
+  /* Ajusta el color del texto según sea necesario */
+}
+
+.header .nav-links {
+  margin-top: 20px;
+  margin-left: -130px;
+  list-style: none;
+}
+
+.header .nav-links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.header .nav-links li:hover {
+  transform: scale(1.1);
+}
+
+.header .nav-links a {
+  font-size: 700;
+  color: #eceff1;
+  text-decoration: none;
+}
+
+.header .nav-links li a:hover {
+  color: #ffbc0e;
+}
+
+.header .btn button {
+  margin-left: 20px;
+  font-weight: 700;
+  color: #1b3039;
+  padding: 9px 25px;
+  background: #eceff1;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover {
+  background-color: #e2f1f8;
+  color: #ffbc0e;
+  transform: scale(1.1);
+}

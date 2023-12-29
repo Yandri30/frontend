@@ -1,0 +1,87 @@
+<div class="container-fluid g-0">
+
+    <app-sidebar class="border-0"></app-sidebar>
+
+    <div class="display-area">
+
+        <main class="content mt-5">
+            <div class="container-fluid">
+                <div class="header">
+                    <h1 class="header-title">
+                        Detalles de tarea
+                    </h1>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item" routerLink="/inicio"><a href="#">Inicio</a></li>
+                        <li class="breadcrumb-item"><a routerLink="/tareas">Tarea</a></li>
+                        <li class="breadcrumb-item active"><a href="">Detalles</a></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12 col-xl-8">
+                    <div class="card">
+                        <div class="card-header bg-dark" style="color: #fff;">
+                            <h5 class="card-title">Detalle de tarea</h5>
+                            <h6 class="card-subtitle text muted">Tareas.</h6>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="form-group">
+                                            <label class="form label">Titulo de la tarea</label>
+                                            <input type="text" readonly class="form-control mt-2" placeholder="Titulo de la tarea" #titulo="ngModel" name="titulo" [(ngModel)]="tarea.titulo" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form label">Descripción de la tarea</label>
+                                            <input type="text" readonly class="form-control mt-2" placeholder="Descripción de la tarea" #descripcion="ngModel" name="descripcion" [(ngModel)]="tarea.descripcion" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-11 mt-2">
+                                            <div class="col-lg-10">
+                                                <div class="form-group">
+                                                    <label class="form label">Descripción del problema por el cliente</label>
+                                                    <textarea type="number" readonly class="form-control mt-2" placeholder="¿Qué problema presenta el usuario?" #problema="ngModel" name="problema" [(ngModel)]="tarea.problema" required></textarea>
+                                                    <!-- <img src="../../../../assets/img/tareas.png" alt="Imagen Producto" class="rounded-circle img-responsive mt-2 float-end" width="50" height="50"> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mt-2">
+                                        <div class="form-group">
+                                            <label class="form-label">
+                                                Cliente solicitante
+                                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                            </label>
+                                            <select class="form-control" #idcliente="ngModel" readonly name="idcliente" [(ngModel)]="tarea.idcliente" required>
+                                                        <option value="" disabled>SELECCIONAR</option>
+                                                        <option value="{{item._id}}" *ngFor="let item of clientes">{{item.nombres}}</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-dark mt-3" routerLink="/tareas">Regresar</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4">
+                    <div class="card-body ">
+                        <div class="text-center mt-5">
+                            <img src="../../../../assets/img/tareas.png" alt="Imagen Producto" class="rounded-circle img-responsive mt-2 mx-auto" width="300" height="300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+</div>

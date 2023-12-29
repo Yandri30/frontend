@@ -1,0 +1,114 @@
+<div class="container-fluid g-0">
+
+    <app-sidebar class="border-0"></app-sidebar>
+
+    <div class="display-area">
+
+        <main class="content mt-5">
+            <div class="container-fluid">
+                <div class="header">
+                    <h1 class="header-title">
+                        Edición de tarea
+                    </h1>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item" routerLink="/inicio"><a href="#">Inicio</a></li>
+                        <li class="breadcrumb-item"><a routerLink="/tareas">Tarea</a></li>
+                        <li class="breadcrumb-item active"><a href="">Edicion de Tarea</a></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12 col-xl-8">
+                    <div class="card">
+                        <div class="card-header bg-dark" style="color: #fff;">
+                            <h5 class="card-title">Rellene el formulario</h5>
+                            <h6 class="card-subtitle text muted">Tareas.</h6>
+                        </div>
+                        <div class="card-body">
+                            <form #tareaForm="ngForm" (ngSubmit)="onSubmit(tareaForm)" class="formulario" id="formulario">
+                                <div class="row">
+                                    <!-- GRUPO TITULO -->
+                                    <div class="col-lg-5 formulario__grupo" id="grupo__titulo">
+                                        <label class="form label">Título de la tarea</label>
+                                        <div class="form-group formulario__grupo-input">
+                                            <input type="text" class="form-control mt-2 formulario__input" id="titulo" placeholder="Titulo de la tarea" #titulo="ngModel" name="titulo" [(ngModel)]="tarea.titulo" required>
+                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                        </div>
+                                        <p class="formulario__input-error">El titulo tiene que ser de 1 a 40 carácteres puede llevar letras, espacios y acentos.</p>
+                                    </div>
+                                    <!-- GRUPO DESCRIPCION -->
+                                    <div class="col-lg-4 formulario__grupo" id="grupo__descripcion">
+                                        <label class="form label">Descripción de la tarea</label>
+                                        <div class="form-group formulario__grupo-input">
+                                            <input type="text" class="form-control mt-2 formulario__input" id="descripcion" placeholder="Descripción de la tarea" #descripcion="ngModel" name="descripcion" [(ngModel)]="tarea.descripcion" required>
+                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                        </div>
+                                        <p class="formulario__input-error">La descripcion tiene que ser de 1 a 60 carácteres puede llevar letras, espacios y acentos.</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-11 mt-2">
+                                            <!-- GRUPO PROBLEMA -->
+                                            <div class="col-lg-10 formulario__grupo" id="grupo__problema">
+                                                <label class="form label">Descripción del problema por el cliente</label>
+                                                <div class="form-group formulario__grupo-input">
+                                                    <textarea type="number" class="form-control mt-2 formulario__input" style="height: 2%;" id="problema" placeholder="¿Qué problema presenta el usuario?" #problema="ngModel" name="problema" [(ngModel)]="tarea.problema" required></textarea>
+                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                </div>
+                                                <p class="formulario__input-error">La descripcion tiene que ser de 1 a 200 carácteres puede llevar letras, espacios y acentos.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mt-2">
+                                        <div class="form-group">
+                                            <label class="form-label">
+                                                Tecnico a cargo
+                                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                            </label>
+                                            <select class="form-control form-select" #iduser="ngModel" name="iduser" [(ngModel)]="tarea.iduser" required>
+                                                        <option value="" disabled>SELECCIONAR</option>
+                                                        <option value="{{item._id}}" *ngFor="let item of usuarios">{{item.nombres}}</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mt-2">
+                                        <div class="form-group">
+                                            <label class="form-label">
+                                                Cliente solicitante
+                                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                            </label>
+                                            <select class="form-control form-select" #idcliente="ngModel" name="idcliente" [(ngModel)]="tarea.idcliente" required>
+                                                        <option value="" disabled>SELECCIONAR</option>
+                                                        <option value="{{item._id}}" *ngFor="let item of clientes">{{item.nombres}}</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <a routerLink="/cliente/registrar" class="mt-3">
+                                        ¿No encuentras el cliente?. Crea uno nuevo aquí
+                                        <i class="fa-solid fa-user-plus"></i>
+                                    </a>
+                                </div>
+
+                                <button type="submit" class="btn btn-dark mt-3">Registrar</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4">
+                    <div class="card-body ">
+                        <div class="text-center mt-5">
+                            <img src="../../../../assets/img/tareas.png" alt="Imagen Producto" class="rounded-circle img-responsive mt-2 mx-auto" width="300" height="300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+</div>

@@ -1,0 +1,22 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.active {
+    font-weight: 500;
+}
+
+a:hover {
+    text-shadow: 0.3px 0.3px 0.3px cadetblue;
+}
+
+.btn__mod {
+    background-color: #fff;
+    color: black;
+}
+
+.btn__mod:hover {
+    background-color: #ddddddd3;
+    color: white;
+}

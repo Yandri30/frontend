@@ -1,0 +1,93 @@
+<div class="container-fluid g-0">
+
+    <app-sidebar class="border-0"></app-sidebar>
+
+    <div class="display-area">
+
+        <main class="content mt-5">
+            <div class="container-fluid">
+                <div class="header">
+                    <h1 class="header-title">
+                        Registro de productos
+                    </h1>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/inicio">Inicio</a></li>
+                        <li class="breadcrumb-item"><a routerLink="/productos">Productos</a></li>
+                        <li class="breadcrumb-item active"><a href="">Edición de productos</a></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12 col-xl-8">
+
+                    <div class="card">
+                        <div class="card-header" style="color: #fff; background-color: #3FABBE;">
+                            <h5 class="card-title">Rellene el formulario</h5>
+                            <h6 class="card-subtitle text muted">Productos.</h6>
+                        </div>
+                        <div class="card-body">
+                            <form #productoForm="ngForm" (ngSubmit)="onSubmit(productoForm)" class="formulario" id="formulario">
+                                <div class="row">
+                                    <!-- GRUPO TITULO -->
+                                    <div class="col-lg-6 formulario__grupo" id="grupo__titulo">
+                                        <label class="form label">Titulo del producto</label>
+                                        <div class="form-group formulario__grupo-input">
+                                            <input type="text" class="form-control formulario__input" id="titulo" placeholder="Ingrese el titulo del producto" #titulo="ngModel" name="titulo" [ngModel]="producto?.titulo" required>
+                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                        </div>
+                                        <p class="formulario__input-error">El titulo tiene que ser de 1 a 40 carácteres puede llevar letras, espacios y acentos.</p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form label">P.C.P</label>
+                                            <input type="number" class="form-control" placeholder="$0" #precio_compra="ngModel" name="precio_compra" [ngModel]="producto?.precio_compra" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="form label">P.V.P</label>
+                                            <input type="number" class="form-control" placeholder="$0" #precio_venta="ngModel" name="precio_venta" [ngModel]="producto?.precio_venta" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- GRUPO DESCRIPCION -->
+                                <div class="col-lg-12 mt-3 formulario__grupo" id="grupo__descripcion">
+                                    <label class="form label">Descripción</label>
+                                    <div class="form-group mt-2 formulario__grupo-input">
+                                        <textarea class="form-control formulario__input" style="height: 2%;" id="descripcion" placeholder="Descripción del producto" #descripcion="ngModel" name="descripcion" [ngModel]="producto?.descripcion" required></textarea>
+                                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                    </div>
+                                    <p class="formulario__input-error">La descripcion tiene que ser de 1 a 200 carácteres puede llevar letras, espacios y acentos.</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 mt-2">
+                                        <div class="form-group">
+                                            <label class="form-label">Categoría</label>
+                                            <select class="form-control form-select" #idcategoria="ngModel" required name="idcategoria" [ngModel]="producto?.idcategoria" required>
+                                                <option value="" disabled>SELECCIONAR</option>
+                                                <option value="{{item.id}}" *ngFor="let item of categorias">{{item.titulo.toUpperCase()}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 mt-2">
+                                        <div class="form-group">
+                                            <label class="form-label">Puntos</label>
+                                            <input type="number" class="form-control" placeholder="0" #puntos="ngModel" name="puntos" [ngModel]="producto?.puntos" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-info mt-3">Actualizar</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+</div>
